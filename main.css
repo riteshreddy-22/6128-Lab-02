@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: lightgray;
+}
+
+.title{
+    text-align: center;
+    border-bottom: 2px solid black;
+    margin: 2%;
+    padding: 2%;
+    font-size: 50px;
+}
+
+.main-content{
+    display: flex;
+    width: 100%;
+}
+
+.sec{
+    border: 1.5px solid rgb(129, 75, 5);
+    margin: 1%;
+    padding: 1%;
+}
+
+.sec-1{
+    background-color: #f5cb5c;
+}
+
+.sec-2{
+    background-color: #6b9080;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .main-content{
+        display: flex;
+        flex-direction: column;
+    }
+}
