@@ -20,7 +20,7 @@ self.addEventListener('activate', (event) => {
     event.WaitUntil(clients.claim());
 });
 
-// Fetch event from service worker
+// Fetch event from service worker (Using cache with Network fallback method)
 self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request)
