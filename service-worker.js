@@ -10,7 +10,6 @@ self.addEventListener('install', (event) => {
             cache.add('/');
             cache.add('/index.html');
             cache.add('/logo.png');
-            cache.add('/main.css');
         })
     );
 });
