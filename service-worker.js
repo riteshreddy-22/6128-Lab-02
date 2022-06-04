@@ -2,6 +2,17 @@
 self.addEventListener('install', (event) => {
     console.log('SW installed: ', event);
     self.skipWaiting();
+
+    // Caching
+    event.WaitUntil(
+        caches.open('cacheAssets')
+            .then((cache) => {
+            cache.add('/');
+            cache.add('/index.html');
+            cache.add('/logo.png');
+            cache.add('/main.css');
+        })
+    );
 });
 
 // Activating a service worker
@@ -12,5 +23,10 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event from service worker
 self.addEventListener('fetch', (event) => {
-    return;
+    event.respondWith(
+        caches.match(event.request)
+        .then((response) => {
+            return response || fetch(event.request);
+        })
+    );
  });
